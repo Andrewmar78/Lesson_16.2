@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список предложений</title>
+</head>
+<body>
+    <h1>Все предложения:</h1>
+    {% for offer in offers %}
+        <p><a href="/offers/{{offer.id}}">Предложение № {{offer.id}}</a></p>
+        <p> Номер заказа: {{offer.order_id}}</a></p>
+        <p> Номер исполнителя: {{offer.executor_id}}</a></p>
+    {% endfor %}
+</body>
+</html>

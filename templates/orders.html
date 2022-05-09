@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список заказов</title>
+</head>
+<body>
+    <h1>Все заказы:</h1>
+    {% for order in orders %}
+        <p><a href="/orders/{{order.id}}">Заказ № {{order.id}}</a></p>
+        <p> Задание: {{order.name}}</a></p>
+        <p> Описание: {{order.description}}</a></p>
+        <p> Начало: {{order.start_date}}</a></p>
+        <p> Адрес: {{order.address}}</a></p>
+        <p> Цена: {{order.price}}</a></p>
+        <p> Инд. № заказчика: {{order.customer_id}}</a></p>
+        <p> Инд. № исполнителя: {{order.executor_id}}</a></p>
+    {% endfor %}
+</body>
+</html>
