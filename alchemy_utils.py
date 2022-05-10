@@ -1,17 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from utils import get_users_all, get_offers_all, get_orders_all
+from main import db
 from datetime import datetime
-
-"""Запуск SQLAlchemy"""
-app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///configs/cache.sqlite3"
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///:memory:"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# Строчка ниже не хочет работать без ошибок, пришлось записать две верхние (из интернета)
-# app.config["SQLAlchemy_DATABASE_URI"] = "sqlite:///sqlite3.db"
-app.config['JSON_AS_ASCII'] = False
-db = SQLAlchemy(app)
 
 
 class User(db.Model):
@@ -114,7 +105,3 @@ db.create_all()
 fulfill_users_data()
 fulfill_orders_data()
 fulfill_offers_data()
-
-
-# if __name__ == '__main__':
-#     app.run(debug=True)

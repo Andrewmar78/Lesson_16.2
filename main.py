@@ -10,8 +10,11 @@ logging.basicConfig(filename="basic.log", level=logging.INFO)
 
 """Запуск SQLAlchemy"""
 app = Flask(__name__)
+# app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///configs/cache.sqlite3"
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///:memory:"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# Строчка ниже не хочет работать без ошибок, пришлось записать две верхние (из интернета)
+# app.config["SQLAlchemy_DATABASE_URI"] = "sqlite:///sqlite3.db"
 app.config['JSON_AS_ASCII'] = False
 db = SQLAlchemy(app)
 
